@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #FFF0E6;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .discount-banner {
+            background-color: #FF5722;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .discount-banner h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .discount-banner p {
+            margin: 0;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .tag {
+            background-color: #f5f5f5;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin: 4px;
+        }
+
+        .food-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .food-item {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .food-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .food-item .info {
+            padding: 16px;
+        }
+
+        .food-item .info h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .food-item .info p {
+            margin: 4px 0;
+        }
+
+        .food-item .info .price {
+            font-weight: bold;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: rgb(67, 57, 57);
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .modal-header button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .modal img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .order-button {
+            width: 100%;
+            background-color: #FF5722;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .order-button:hover {
+            background-color: #E64A19;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <input type="text" placeholder="What would you like to eat?" />
+
+    <div class="discount-banner">
+        <h2>30% Off</h2>
+        <p>Fitness Meal</p>
+    </div>
+
+    <div class="tags">
+        <span class="tag">Nearby</span>
+        <span class="tag">Promotion</span>
+        <span class="tag">Newcomers</span>
+        <span class="tag">Best Seller</span>
+        <span class="tag">Top Rated</span>
+        <span class="tag">All</span>
+    </div>
+
+    <div class="food-items">
+        <!-- Food items will be generated here by JS -->
+    </div>
+</div>
+
+<div class="modal" id="food-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modal-title">Food Name</h2>
+            <button onclick="closeModal()">&times;</button>
+        </div>
+        <img id="modal-image" src="" alt="Food Image">
+        <p id="modal-category">Category</p>
+        <p id="modal-description">Description</p>
+        <p id="modal-price" class="price">£0.00</p>
+        <button class="order-button" onclick="orderNow()">Order Now</button>
+    </div>
+</div>
+
+<script>
+    const foodItems = [
+        {
+            id: 1,
+            name: "Panera Soup",
+            category: "Fast-Food",
+            price: 39,
+            description: "A warm, comforting soup with fresh vegetables and tender chicken.",
+            imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrwQr6s5vwJgxW-U5_Y_EM21EThQAILH3V6Q&s"
+        },
+        {
+            id: 2,
+            name: "Noodle's",
+            category: "Fast-Food",
+            price: 39,
+            description: "Delicious noodles with your choice of savory sauce and toppings.",
+            imageUrl: "https://www.vegrecipesofindia.com/wp-content/uploads/2018/09/vegetable-noodles-500x375.jpg"
+        },
+        {
+            id: 3,
+            name: " panera tomato Soup",
+            category: "Fast-Food",
+            price: 39,
+            description: "Another variety of our popular soup, perfect for a chilly day.",
+            imageUrl: "https://sweetandsavorymeals.com/wp-content/uploads/2017/11/Panera-Bread-Creamy-Tomato-Soup-Copycat-9-scaled.jpg"
+        },
+        {
+            id: 4,
+            name: "Burger Mozza XL",
+            category: "Fast-Food",
+            price: 39,
+            description: "A juicy, oversized burger topped with melted mozzarella cheese.",
+            imageUrl: "https://img.freepik.com/premium-photo/pizza-burger-with-mozzarella-pepperoni_1170794-3735.jpg"
+        },
+        {
+            id: 5,
+            name: "Caesar Salad",
+            category: "Healthy",
+            price: 29,
+            description: "Crisp romaine lettuce, croutons, and parmesan cheese with Caesar dressing.",
+            imageUrl: "https://lindseyeatsla.com/wp-content/uploads/2021/10/Lindseyeats_Classic_Caesar_Salad-2.jpg"
+        },
+        {
+            id: 6,
+            name: "Grilled Chicken Sandwich",
+            category: "Sandwich",
+            price: 34,
+            description: "Tender grilled chicken breast with fresh veggies on a toasted bun.",
+            imageUrl: "https://www.licious.in/blog/wp-content/uploads/2020/12/Grilled-Chicken-Sandwich.jpg"
+        }
+    ];
+
+    const foodContainer = document.querySelector('.food-items');
+    const modal = document.getElementById('food-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalImage = document.getElementById('modal-image');
+    const modalCategory = document.getElementById('modal-category');
+    const modalDescription = document.getElementById('modal-description');
+    const modalPrice = document.getElementById('modal-price');
+
+    // Function to display food items
+    function displayFoodItems() {
+        foodItems.forEach(item => {
+            const foodItem = document.createElement('div');
+            foodItem.classList.add('food-item');
+            foodItem.innerHTML = `
+                <img src="${item.imageUrl}" alt="${item.name}">
+                <div class="info">
+                    <h3>${item.name}</h3>
+                    <p>${item.category}</p>
+                    <p class="price">£${item.price}</p>
+                </div>
+            `;
+            foodItem.onclick = () => openModal(item);
+            foodContainer.appendChild(foodItem);
+        });
+    }
+
+    // Function to open modal with food details
+    function openModal(item) {
+        modalTitle.textContent = item.name;
+        modalImage.src = item.imageUrl;
+        modalCategory.textContent = item.category;
+        modalDescription.textContent = item.description;
+        modalPrice.textContent = `£${item.price}`;
+        modal.classList.add('active');
+    }
+
+    // Function to close modal
+    function closeModal() {
+        modal.classList.remove('active');
+    }
+
+    // Function to simulate order
+    function orderNow() {
+        alert(`Ordered ${modalTitle.textContent}`);
+        closeModal();
+    }
+
+    // Display food items on page load
+    displayFoodItems();
+</script>
+
+</body>
+</html>

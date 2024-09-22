@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Snacks Delivery App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF3E0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #FF9800;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .promo-banner {
+            background-color: #FF5722;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .promo-banner h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .filter-option {
+            background-color: #FFE0B2;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .food-item {
+            border: 1px solid #FFB74D;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .food-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .food-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .food-info {
+            padding: 15px;
+        }
+        .food-info h3 {
+            margin: 0 0 5px 0;
+            color: #E65100;
+        }
+        .food-info p {
+            margin: 0;
+            color: #666;
+        }
+        .food-price {
+            font-weight: bold;
+            color: #FF5722;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .food-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" class="search-bar" placeholder="Which Indian snack are you craving?">
+        
+        <div class="promo-banner">
+            <h2>30% Off</h2>
+            <p>Indian Snacks Festival</p>
+        </div>
+        
+        <div class="filter-options">
+            <span class="filter-option">Nearby</span>
+            <span class="filter-option">Promotion</span>
+            <span class="filter-option">Newcomers</span>
+            <span class="filter-option">Best Seller</span>
+            <span class="filter-option">Top Rated</span>
+            <span class="filter-option">All</span>
+        </div>
+        
+        <div class="food-grid">
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/samosa-NTM0NzQxLmpwZw==.jpg" alt="Crispy Samosa">
+                <div class="food-info">
+                    <h3>Samosa</h3>
+                    <p>Crispy pastry filled with spiced potatoes and peas</p>
+                    <p class="food-price">₹30</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vada-pav-NTM0NzQyLmpwZw==.jpg" alt="Vada Pav">
+                <div class="food-info">
+                    <h3>Vada Pav</h3>
+                    <p>Spicy potato fritter in a bun with chutneys</p>
+                    <p class="food-price">₹25</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pani-puri-NTM0NzQzLmpwZw==.jpg" alt="Pani Puri">
+                <div class="food-info">
+                    <h3>Pani Puri</h3>
+                    <p>Crispy hollow puri filled with tangy water and chickpeas</p>
+                    <p class="food-price">₹40</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bhel-puri-NTM0NzQ0LmpwZw==.jpg" alt="Bhel Puri">
+                <div class="food-info">
+                    <h3>Bhel Puri</h3>
+                    <p>Puffed rice mixed with vegetables and tangy chutneys</p>
+                    <p class="food-price">₹35</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pakora-NTM0NzQ1LmpwZw==.jpg" alt="Pakora">
+                <div class="food-info">
+                    <h3>Pakora</h3>
+                    <p>Assorted vegetable fritters in chickpea batter</p>
+                    <p class="food-price">₹50</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dabeli-NTM0NzQ2LmpwZw==.jpg" alt="Dabeli">
+                <div class="food-info">
+                    <h3>Dabeli</h3>
+                    <p>Spicy potato filling in a bun with chutneys and sev</p>
+                    <p class="food-price">₹30</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

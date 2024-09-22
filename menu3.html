@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dessert Delivery App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF0F5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #FFB6C1;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .promo-banner {
+            background-color: #FF69B4;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .promo-banner h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .filter-option {
+            background-color: #FFE4E1;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .food-item {
+            border: 1px solid #FFB6C1;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+            transition: transform 0.3s ease;
+        }
+        .food-item:hover {
+            transform: translateY(-5px);
+        }
+        .food-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .food-info {
+            padding: 15px;
+        }
+        .food-info h3 {
+            margin: 0 0 5px 0;
+            color: #FF1493;
+        }
+        .food-info p {
+            margin: 0;
+            color: #666;
+        }
+        .food-price {
+            font-weight: bold;
+            color: #FF69B4;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .food-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" class="search-bar" placeholder="What sweet treat are you craving?">
+        
+        <div class="promo-banner">
+            <h2>20% Off</h2>
+            <p>Dessert Delights Special</p>
+        </div>
+        
+        <div class="filter-options">
+            <span class="filter-option">Nearby</span>
+            <span class="filter-option">Promotion</span>
+            <span class="filter-option">Newcomers</span>
+            <span class="filter-option">Best Seller</span>
+            <span class="filter-option">Top Rated</span>
+            <span class="filter-option">All</span>
+        </div>
+        
+        <div class="food-grid">
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/chocolate-cake-NTM0NzI5LmpwZw==.jpg" alt="Decadent Chocolate Cake">
+                <div class="food-info">
+                    <h3>Chocolate Cake</h3>
+                    <p>Rich, moist chocolate cake with ganache</p>
+                    <p class="food-price">$8.99</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/strawberry-cheesecake-NTM0NzMwLmpwZw==.jpg" alt="Creamy Strawberry Cheesecake">
+                <div class="food-info">
+                    <h3>Strawberry Cheesecake</h3>
+                    <p>Creamy cheesecake with fresh strawberry topping</p>
+                    <p class="food-price">$7.99</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tiramisu-NTM0NzMxLmpwZw==.jpg" alt="Classic Tiramisu">
+                <div class="food-info">
+                    <h3>Tiramisu</h3>
+                    <p>Italian coffee-flavored dessert with mascarpone</p>
+                    <p class="food-price">$6.99</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/apple-pie-NTM0NzMyLmpwZw==.jpg" alt="Homemade Apple Pie">
+                <div class="food-info">
+                    <h3>Apple Pie</h3>
+                    <p>Classic apple pie with a flaky crust</p>
+                    <p class="food-price">$5.99</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/creme-brulee-NTM0NzMzLmpwZw==.jpg" alt="Creamy Crème Brûlée">
+                <div class="food-info">
+                    <h3>Crème Brûlée</h3>
+                    <p>Vanilla custard with a caramelized sugar top</p>
+                    <p class="food-price">$6.99</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ice-cream-sundae-NTM0NzM0LmpwZw==.jpg" alt="Deluxe Ice Cream Sundae">
+                <div class="food-info">
+                    <h3>Ice Cream Sundae</h3>
+                    <p>Assorted ice creams with toppings and whipped cream</p>
+                    <p class="food-price">$7.99</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

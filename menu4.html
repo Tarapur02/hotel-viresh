@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South Indian Lunch Delivery App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF7E6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #FFB266;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .promo-banner {
+            background-color: #FF8C00;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .promo-banner h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .filter-option {
+            background-color: #FFE0B2;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .food-item {
+            border: 1px solid #FFB266;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+            transition: transform 0.3s ease;
+        }
+        .food-item:hover {
+            transform: translateY(-5px);
+        }
+        .food-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .food-info {
+            padding: 15px;
+        }
+        .food-info h3 {
+            margin: 0 0 5px 0;
+            color: #D35400;
+        }
+        .food-info p {
+            margin: 0;
+            color: #666;
+        }
+        .food-price {
+            font-weight: bold;
+            color: #FF8C00;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .food-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" class="search-bar" placeholder="What South Indian lunch dish are you craving?">
+        
+        <div class="promo-banner">
+            <h2>25% Off</h2>
+            <p>South Indian Lunch Special</p>
+        </div>
+        
+        <div class="filter-options">
+            <span class="filter-option">Nearby</span>
+            <span class="filter-option">Promotion</span>
+            <span class="filter-option">Newcomers</span>
+            <span class="filter-option">Best Seller</span>
+            <span class="filter-option">Top Rated</span>
+            <span class="filter-option">All</span>
+        </div>
+        
+        <div class="food-grid">
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sambar-rice-NTM0NzM1LmpwZw==.jpg" alt="Sambar Rice">
+                <div class="food-info">
+                    <h3>Sambar Rice</h3>
+                    <p>Lentil-based vegetable stew with rice</p>
+                    <p class="food-price">₹120</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/curd-rice-NTM0NzM2LmpwZw==.jpg" alt="Curd Rice">
+                <div class="food-info">
+                    <h3>Curd Rice</h3>
+                    <p>Yogurt mixed with rice and tempering</p>
+                    <p class="food-price">₹100</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vegetable-biryani-NTM0NzM3LmpwZw==.jpg" alt="Vegetable Biryani">
+                <div class="food-info">
+                    <h3>Vegetable Biryani</h3>
+                    <p>Fragrant rice dish with mixed vegetables</p>
+                    <p class="food-price">₹150</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/lemon-rice-NTM0NzM4LmpwZw==.jpg" alt="Lemon Rice">
+                <div class="food-info">
+                    <h3>Lemon Rice</h3>
+                    <p>Tangy rice with lemon juice and peanuts</p>
+                    <p class="food-price">₹110</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bisi-bele-bath-NTM0NzM5LmpwZw==.jpg" alt="Bisi Bele Bath">
+                <div class="food-info">
+                    <h3>Bisi Bele Bath</h3>
+                    <p>Spicy lentil and rice dish with vegetables</p>
+                    <p class="food-price">₹130</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/thali-NTM0NzQwLmpwZw==.jpg" alt="South Indian Thali">
+                <div class="food-info">
+                    <h3>South Indian Thali</h3>
+                    <p>Assorted dishes served on a platter</p>
+                    <p class="food-price">₹200</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

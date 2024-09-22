@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+     body{
+        background-image: url(hero-background1.jpg);
+
+}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservation Confirmation - Berger Hut</title>
+  <style>
+    /* Add the background image using CSS */
+    hero {
+        background-image: url("hero-background1.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        text-align: left;
+        color: #fff;/
+    }
+    
+    header {
+      background-color: rgba(3, 3, 3, 0.5); /* Dark overlay to enhance readability */
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 100px auto;
+    }
+    
+    h1 {
+      font-size: 36px;
+    }
+
+    p, ul {
+      font-size: 18px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #e61515;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Reservation Confirmed!</h1>
+    <p>Thank you for your reservation, <strong><span id="customer-name"></span></strong>! We look forward to welcoming you to Berger Hut.</p>
+    <p>Your reservation details:</p>
+    <ul>
+      <li>Date: <span id="reservation-date"></span></li>
+      <li>Time: <span id="reservation-time"></span></li>
+      <li>Phone: <span id="customer-phone"></span></li>
+    </ul>
+    <a href="index.html">Go back to Home</a> <!-- Link back to index.html -->
+  </header>
+
+  <script>
+    // Get URL parameters and display them on the confirmation page
+    const urlParams = new URLSearchParams(window.location.search);
+    document.getElementById('customer-name').textContent = urlParams.get('name');
+    document.getElementById('reservation-date').textContent = urlParams.get('date');
+    document.getElementById('reservation-time').textContent = urlParams.get('time');
+    document.getElementById('customer-phone').textContent = urlParams.get('phone');
+  </script>
+</body>
+</html>

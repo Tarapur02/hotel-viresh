@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Resort Booking</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+        }
+        .container {
+            background-image: url('https://images.pexels.com/photos/453201/pexels-photo-453201.jpeg?auto=compress&cs=tinysrgb&w=600');
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+        }
+        .content {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba();
+            backdrop-filter: blur(1px);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .booking-form {
+            background-color: ;
+            padding: 30px;
+            width: 300px;
+        }
+        .booking-form h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: white;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .date-inputs, .guest-inputs {
+            display: flex;
+            gap: 10px;
+        }
+        .guest-inputs select {
+            flex: 1;
+        }
+        .submit-btn {
+            background-color: #3366cc;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #254e9c;
+        }
+        .reservation-text {
+            color: white;
+            padding: 30px;
+            flex: 1;
+        }
+        .reservation-text h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .payment-section {
+            margin-top: 30px;
+            background-color:;
+            padding: 20px;
+            border-radius: 8px;
+            color: white;
+        }
+        .payment-section h3 {
+            margin-top: 0;
+        }
+        .payment-methods {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .payment-methods label {
+            cursor: pointer;
+        }
+        .terms-checkbox {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .terms-checkbox input {
+            margin-right: 10px;
+        }
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            .booking-form {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="booking-form">
+                <h2>Your Destination</h2>
+                <form action="reservations1.html" method="GET"> <!-- Link to reservations1.html -->
+                    <div class="form-group">
+                        <input type="text" placeholder="Enter a destination or hotel name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Check in - Check out</label>
+                        <div class="date-inputs">
+                            <input type="date" placeholder="mm/dd/yyyy" required>
+                            <input type="date" placeholder="mm/dd/yyyy" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Guests</label>
+                        <div class="guest-inputs">
+                            <select required>
+                                <option>1 Room</option>
+                                <option>2 Rooms</option>
+                                <option>3 Rooms</option>
+                            </select>
+                            <select required>
+                                <option>1 Adult</option>
+                                <option>2 Adults</option>
+                                <option>3 Adults</option>
+                            </select>
+                            <select required>
+                                <option>0 Children</option>
+                                <option>1 Child</option>
+                                <option>2 Children</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Payment Section -->
+                    <div class="payment-section">
+                        <h3>Payment Details</h3>
+                        <div class="form-group payment-methods">
+                            <label><input type="radio" name="payment-method" value="phonepe" required> PhonePe</label>
+                            <label><input type="radio" name="payment-method" value="googlepay"> Google Pay</label>
+                        </div>
+                        
+                        <div class="terms-checkbox">
+                            <input type="checkbox" name="terms" required>
+                            <label for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Check availability</button>
+                </form>
+            </div>
+            <div class="reservation-text">
+                <h1>MAKE YOUR RESERVATION</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Animi facere, soluta magnam consectetur molestias itaque ad sint fugit architecto incidunt iste culpa perspiciatis possimus voluptates aliquid consequuntur cumque quasi. Perspiciatis.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

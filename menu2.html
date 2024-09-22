@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South Indian Breakfast Delivery App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF0E6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .promo-banner {
+            background-color: #FF5722;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .promo-banner h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .filter-option {
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .food-item {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+        }
+        .food-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .food-info {
+            padding: 15px;
+        }
+        .food-info h3 {
+            margin: 0 0 5px 0;
+        }
+        .food-info p {
+            margin: 0;
+            color: #666;
+        }
+        .food-price {
+            font-weight: bold;
+            color: #FF5722;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .food-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" class="search-bar" placeholder="What South Indian breakfast would you like?">
+        
+        <div class="promo-banner">
+            <h2>30% Off</h2>
+            <p>South Indian Breakfast Special</p>
+        </div>
+        
+        <div class="filter-options">
+            <span class="filter-option">Nearby</span>
+            <span class="filter-option">Promotion</span>
+            <span class="filter-option">Newcomers</span>
+            <span class="filter-option">Best Seller</span>
+            <span class="filter-option">Top Rated</span>
+            <span class="filter-option">All</span>
+        </div>
+        
+        <div class="food-grid">
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/idli-NTM0NzIzLmpwZw==.jpg" alt="Idli with Sambar and Chutney">
+                <div class="food-info">
+                    <h3>Idli</h3>
+                    <p>Steamed rice cakes with sambar and chutney</p>
+                    <p class="food-price">₹80</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dosa-NTM0NzI0LmpwZw==.jpg" alt="Crispy Dosa with Chutney">
+                <div class="food-info">
+                    <h3>Masala Dosa</h3>
+                    <p>Crispy rice crepe with spiced potato filling</p>
+                    <p class="food-price">₹100</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vada-NTM0NzI1LmpwZw==.jpg" alt="Vada with Coconut Chutney">
+                <div class="food-info">
+                    <h3>Medu Vada</h3>
+                    <p>Crispy lentil doughnuts with chutney</p>
+                    <p class="food-price">₹70</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/uttapam-NTM0NzI2LmpwZw==.jpg" alt="Uttapam with Vegetables">
+                <div class="food-info">
+                    <h3>Uttapam</h3>
+                    <p>Thick rice pancake with vegetables</p>
+                    <p class="food-price">₹90</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pongal-NTM0NzI3LmpwZw==.jpg" alt="Ven Pongal">
+                <div class="food-info">
+                    <h3>Ven Pongal</h3>
+                    <p>Savory rice and lentil porridge</p>
+                    <p class="food-price">₹85</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/upma-NTM0NzI4LmpwZw==.jpg" alt="Upma with Vegetables">
+                <div class="food-info">
+                    <h3>Upma</h3>
+                    <p>Savory semolina porridge with vegetables</p>
+                    <p class="food-price">₹75</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

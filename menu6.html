@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Dinner Delivery App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF8E1;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #FFA000;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .promo-banner {
+            background-color: #FF6F00;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .promo-banner h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .filter-option {
+            background-color: #FFECB3;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .food-item {
+            border: 1px solid #FFB300;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .food-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .food-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .food-info {
+            padding: 15px;
+        }
+        .food-info h3 {
+            margin: 0 0 5px 0;
+            color: #E65100;
+        }
+        .food-info p {
+            margin: 0;
+            color: #666;
+        }
+        .food-price {
+            font-weight: bold;
+            color: #FF6F00;
+            margin-top: 10px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .order-btn {
+            background-color: #FF6F00;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        .order-btn:hover {
+            background-color: #E65100;
+        }
+        @media (max-width: 768px) {
+            .food-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" class="search-bar" placeholder="What Indian dinner dish are you craving?">
+        
+        <div class="promo-banner">
+            <h2>20% Off</h2>
+            <p>Indian Dinner Delights</p>
+        </div>
+        
+        <div class="filter-options">
+            <span class="filter-option">Nearby</span>
+            <span class="filter-option">Promotion</span>
+            <span class="filter-option">Newcomers</span>
+            <span class="filter-option">Best Seller</span>
+            <span class="filter-option">Top Rated</span>
+            <span class="filter-option">All</span>
+        </div>
+        
+        <div class="food-grid">
+            <div class="food-item" data-name="Butter Chicken" data-price="250" data-description="Tender chicken in a rich, creamy tomato sauce">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/butter-chicken-NTM0NzQ3LmpwZw==.jpg" alt="Butter Chicken">
+                <div class="food-info">
+                    <h3>Butter Chicken</h3>
+                    <p>Tender chicken in a rich, creamy tomato sauce</p>
+                    <p class="food-price">₹250</p>
+                </div>
+            </div>
+            <div class="food-item" data-name="Palak Paneer" data-price="200" data-description="Cottage cheese cubes in a creamy spinach gravy">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/palak-paneer-NTM0NzQ4LmpwZw==.jpg" alt="Palak Paneer">
+                <div class="food-info">
+                    <h3>Palak Paneer</h3>
+                    <p>Cottage cheese cubes in a creamy spinach gravy</p>
+                    <p class="food-price">₹200</p>
+                </div>
+            </div>
+            <div class="food-item" data-name="Chicken Biryani" data-price="280" data-description="Fragrant rice dish with spiced chicken and herbs">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/biryani-NTM0NzQ5LmpwZw==.jpg" alt="Chicken Biryani">
+                <div class="food-info">
+                    <h3>Chicken Biryani</h3>
+                    <p>Fragrant rice dish with spiced chicken and herbs</p>
+                    <p class="food-price">₹280</p>
+                </div>
+            </div>
+            <div class="food-item" data-name="Dal Makhani" data-price="180" data-description="Creamy black lentils slow-cooked to perfection">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dal-makhani-NTM0NzUwLmpwZw==.jpg" alt="Dal Makhani">
+                <div class="food-info">
+                    <h3>Dal Makhani</h3>
+                    <p>Creamy black lentils slow-cooked to perfection</p>
+                    <p class="food-price">₹180</p>
+                </div>
+            </div>
+            <div class="food-item" data-name="Tandoori Roti" data-price="30" data-description="Whole wheat flatbread baked in a tandoor">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tandoori-roti-NTM0NzUxLmpwZw==.jpg" alt="Tandoori Roti">
+                <div class="food-info">
+                    <h3>Tandoori Roti</h3>
+                    <p>Whole wheat flatbread baked in a tandoor</p>
+                    <p class="food-price">₹30</p>
+                </div>
+            </div>
+            <div class="food-item" data-name="Malai Kofta" data-price="220" data-description="Fried dumplings in a creamy tomato sauce">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/malai-kofta-NTM0NzUyLmpwZw==.jpg" alt="Malai Kofta">
+                <div class="food-info">
+                    <h3>Malai Kofta</h3>
+                    <p>Fried dumplings in a creamy tomato sauce</p>
+                    <p class="food-price">₹220</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalItemName"></h2>
+            <img id="modalItemImage" src="" alt="" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+            <p id="modalItemDescription"></p>
+            <p id="modalItemPrice"></p>
+            <button class="order-btn">Order Now</button>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("itemModal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // Get all food items
+        var foodItems = document.getElementsByClassName("food-item");
+
+        // When the user clicks on a food item, open the modal
+        for (var i = 0; i < foodItems.length; i++) {
+            foodItems[i].onclick = function() {
+                modal.style.display = "block";
+                document.getElementById("modalItemName").innerText = this.getAttribute("data-name");
+                document.getElementById("modalItemDescription").innerText = this.getAttribute("data-description");
+                document.getElementById("modalItemPrice").innerText = "₹" + this.getAttribute("data-price");
+                document.getElementById("modalItemImage").src = this.getElementsByTagName("img")[0].src;
+                document.getElementById("modalItemImage").alt = this.getAttribute("data-name");
+            }
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Order button functionality
+        var orderBtn = document.querySelector(".order-btn");
+        orderBtn.onclick = function() {
+            alert("Your order has been placed!");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
